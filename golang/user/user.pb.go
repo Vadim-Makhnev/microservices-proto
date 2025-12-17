@@ -21,6 +21,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// CreateUserResponse
 type CreateUserRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -65,12 +66,13 @@ func (x *CreateUserRequest) GetId() int64 {
 	return 0
 }
 
+// CreateUserResponse
 type CreateUserResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Email         string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
-	Version       string                 `protobuf:"bytes,4,opt,name=version,proto3" json:"version,omitempty"`
+	Version       int64                  `protobuf:"varint,4,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -126,11 +128,11 @@ func (x *CreateUserResponse) GetEmail() string {
 	return ""
 }
 
-func (x *CreateUserResponse) GetVersion() string {
+func (x *CreateUserResponse) GetVersion() int64 {
 	if x != nil {
 		return x.Version
 	}
-	return ""
+	return 0
 }
 
 var File_user_user_proto protoreflect.FileDescriptor
@@ -144,7 +146,7 @@ const file_user_user_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x03 \x01(\tR\x05email\x12\x18\n" +
-	"\aversion\x18\x04 \x01(\tR\aversion2D\n" +
+	"\aversion\x18\x04 \x01(\x03R\aversion2D\n" +
 	"\vUserService\x125\n" +
 	"\n" +
 	"CreateUser\x12\x12.CreateUserRequest\x1a\x13.CreateUserResponseBAZ?github.com/Vadim-Makhnev/microservices-proto/golang/user;userpbb\x06proto3"
