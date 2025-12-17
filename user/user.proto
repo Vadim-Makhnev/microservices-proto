@@ -1,20 +1,19 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
+
 option go_package = "github.com/Vadim-Makhnev/microservices-proto/golang/user;userpb";
 
+// UserService
 service UserService {
-    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  // CreateUser
+  rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
 }
 
 // CreateUserResponse
 message CreateUserRequest {
-  int64 id = 1;
-}
-
-// CreateUserResponse
-message CreateUserResponse {
-    int64 id = 1; 
-    string name = 2;
-    string email = 3;
-    int64 version = 4;
+  string name     = 1;
+  string email    = 2;
+  string password = 3;
 }
