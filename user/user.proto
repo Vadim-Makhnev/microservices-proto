@@ -7,13 +7,23 @@ option go_package = "github.com/Vadim-Makhnev/microservices-proto/golang/user;us
 
 // UserService
 service UserService {
-  // CreateUser
-  rpc InsertUser (InsertUserRequest) returns (google.protobuf.Empty);
+  // Register user
+  rpc Register(RegisterUserRequest) returns (LoginUserResponse);
+  // Log in user
+  rpc Login(LoginUserRequest) returns (LoginUserResponse);
 }
 
-// CreateUserResponse
-message InsertUserRequest {
+message RegisterUserRequest {
   string name     = 1;
   string email    = 2;
   string password = 3;
+}
+
+message LoginUserRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginUserResponse {
+  string access_token = 1;
 }
