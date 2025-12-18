@@ -1,8 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/empty.proto";
-
-
 option go_package = "github.com/Vadim-Makhnev/microservices-proto/golang/user;userpb";
 
 // UserService
@@ -20,7 +17,7 @@ message RegisterUserRequest {
 }
 
 message LoginUserRequest {
-  string email = 1;
+  string email    = 1;
   string password = 2;
 }
 
