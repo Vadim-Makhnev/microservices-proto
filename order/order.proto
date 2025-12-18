@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "github.com/Vadim-Makhnev/microservices-proto/golang/order;orderpb";
+
+// OrderService
+service OrderService {
+    // Create order
+  rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+message CreateOrderRequest {
+  string             user_id          = 1;
+  repeated OrderItem items            = 2;
+  string             shipping_address = 3;
+}
+
+message CreateOrderResponse {
+  string order_id    = 1;
+  string status      = 2;
+  int32  total_items = 3;
+  double total_price = 4;
+}
+
+message OrderItem {
+  string product_id = 1;
+  int32  quantity   = 2;
+  double price      = 3;
+}
