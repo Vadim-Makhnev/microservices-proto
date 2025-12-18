@@ -8,6 +8,8 @@ service UserService {
   rpc Register(RegisterUserRequest) returns (LoginUserResponse);
   // Log in user
   rpc Login(LoginUserRequest) returns (LoginUserResponse);
+  // Get user by id
+  rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse);
 }
 
 message RegisterUserRequest {
@@ -23,4 +25,13 @@ message LoginUserRequest {
 
 message LoginUserResponse {
   string access_token = 1;
+}
+
+message GetUserByIdRequest {
+  int64 id = 1;
+}
+
+message GetUserByIdResponse {
+  int64 id = 1;
+  string name = 2; // опционально, если понадобится
 }
